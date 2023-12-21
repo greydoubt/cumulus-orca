@@ -24,8 +24,8 @@ tar xvf Python-${PYTHON_VERSION}.tgz && \
 cd Python-*/ && \
 ./configure --enable-optimizations --enable-loadable-sqlite-extensions --enable-ipv6 && \
 make altinstall && \
-ln -sf /usr/local/bin/python3.11.7 /usr/local/bin/python3 && \
-ln -sf /url/local/bin/pip3.11.7 /usr/local/bin/pip3 && \
+ln -sf /usr/local/bin/python3.11 /usr/local/bin/python3 && \
+ln -sf /url/local/bin/pip3.11 /usr/local/bin/pip3 && \
 rm -f Python-${PYTHON_VERSION}.tgz && \
 rm -rf Python-${PYTHON_VERSION}
 # Install Terraform
