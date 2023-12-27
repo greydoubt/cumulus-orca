@@ -50,7 +50,7 @@ pip install -q -t build -r requirements.txt --trusted-host pypi.org --trusted-ho
 check_returncode $? "ERROR: pip install encountered an error."
 
 
-echo "INFO: Adding psycopg2 AWS lambda libraries ..."
+echo "INFO: Adding psycopg2 AWS lambda libraries ...."
 # Install the aws-lambda psycopg2 libraries
 mkdir -p build/psycopg2
 
@@ -63,11 +63,13 @@ fi
 if [ ! -d "../package/awslambda-psycopg2/psycopg2-3.9" ]; then
   rm -d -f -r "../package/awslambda-psycopg2"
 fi
+
 if [ ! -d "../package/awslambda-psycopg2" ]; then
     ## TODO: This should be pulling based on a release version instead of latest
     run_and_check_returncode "git clone https://github.com/jkehler/awslambda-psycopg2.git ../package/awslambda-psycopg2"
 fi
 
+mv ../package/awslambda-psycopg2/psycopg2-3.9/_psycopg.cpython-39-x86_64-linux-gnu.so ../package/awslambda-psycopg2/psycopg2-3.9/_psycopg.so
 cp ../package/awslambda-psycopg2/psycopg2-3.9/* build/psycopg2/
 check_returncode $? "ERROR: Unable to install psycopg2."
 

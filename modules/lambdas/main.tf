@@ -764,8 +764,7 @@ resource "aws_lambda_function" "db_deploy" {
   filename         = "${path.module}/../../tasks/db_deploy/db_deploy.zip"
   handler          = "db_deploy.handler"
   memory_size      = var.orca_recovery_lambda_memory_size
-  # TODO: ORCA XXX- Update python to 3.11 once psycopg2 is figured out
-  runtime          = "python3.9"
+  runtime          = "python3.11"
   source_code_hash = filebase64sha256("${path.module}/../../tasks/db_deploy/db_deploy.zip")
   tags             = var.tags
   timeout          = var.orca_recovery_lambda_timeout

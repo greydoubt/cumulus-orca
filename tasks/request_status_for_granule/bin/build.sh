@@ -66,6 +66,7 @@ if [ ! -d "../package/awslambda-psycopg2" ]; then
     run_and_check_returncode "git clone https://github.com/jkehler/awslambda-psycopg2.git ../package/awslambda-psycopg2"
 fi
 
+mv ../package/awslambda-psycopg2/psycopg2-3.9/_psycopg.cpython-39-x86_64-linux-gnu.so ../package/awslambda-psycopg2/psycopg2-3.9/_psycopg.so
 cp ../package/awslambda-psycopg2/psycopg2-3.9/* build/psycopg2/
 check_returncode $? "ERROR: Unable to install psycopg2."
 
